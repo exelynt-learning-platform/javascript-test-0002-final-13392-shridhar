@@ -16,18 +16,10 @@ function invertedPascal(){
 
     for(let i = patternArr.length-1; i >= 0; i--){
 
-        let line = "";
+        let spaces = " ".repeat(patternArr.length-1-i);
+        let nums = patternArr[i].join(" ");
 
-        // indentation
-        for(let s = 0; s < patternArr.length-1-i; s++){
-            line += " ";
-        }
-
-        for(let num of patternArr[i]){
-            line += num + " ";
-        }
-
-        console.log(line);
+        console.log(spaces + nums);
     }
 }
 
