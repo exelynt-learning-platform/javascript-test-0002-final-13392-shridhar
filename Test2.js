@@ -1,25 +1,25 @@
 function invertedPascal(){
-    const patternArr = [[1], [1,1]];
-    let lastRow = patternArr[1];
 
-    for(let i=1; i<4;i++){
-        const rowArr = [1];
+    const MAX = 4;
 
-        for(let j=1;j<i+1;j++){
-            rowArr.push(lastRow[j-1] + lastRow[j]);
+    for(let n = MAX; n >= 0; n--){
+
+        let line = " ".repeat(MAX - n);
+
+        let val = 1;
+
+        for(let k = 0; k <= n; k++){
+
+            if(k > 0){
+                val = val * (n - k + 1) / k;
+            }
+
+            line += val;
+
+            if(k < n) line += " ";
         }
 
-        rowArr.push(1);
-        patternArr.push(rowArr);
-        lastRow = rowArr;
-    }
-
-    for(let i = patternArr.length-1; i >= 0; i--){
-
-        let spaces = " ".repeat(patternArr.length-1-i);
-        let nums = patternArr[i].join(" ");
-
-        console.log(spaces + nums);
+        console.log(line);
     }
 }
 
